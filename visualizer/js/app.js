@@ -13,6 +13,7 @@ sceneManager.register('valid-anagram', createValidAnagramScene);
 sceneManager.register('two-sum', createTwoSumScene);
 sceneManager.register('two-pointers', createTwoPointersScene);
 sceneManager.register('sliding-window', createSlidingWindowScene);
+sceneManager.register('bellman-ford', createBellmanFordScene);
 
 // UI Event Handlers
 document.getElementById('scene-selector').addEventListener('change', (e) => {
@@ -58,4 +59,4 @@ engine.resize();
 engine.clear();
 engine.drawText("NeetCode 150 DSA Visualizer", canvas.width / 2, canvas.height / 2 - 30, '#e94560', 32, 'center');
 engine.drawText("Select a visualization from the dropdown above", canvas.width / 2, canvas.height / 2 + 20, '#888', 16, 'center');
-engine.drawText("Arrays & Hashing | Two Pointers | Sliding Window | Stack | Trees | Graphs | DP", canvas.width / 2, canvas.height / 2 + 50, '#0f3460', 14, 'center');
+engine.drawText("Arrays & Hashing | Two Pointers | Sliding Window | Graphs | Trees | DP", canvas.width / 2, canvas.height / 2 + 50, '#0f3460', 14, 'center');
