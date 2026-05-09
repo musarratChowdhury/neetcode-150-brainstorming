@@ -399,10 +399,63 @@ For every problem, follow this flow strictly. Do NOT skip phases.
 - `concepts/` — Deep-dive markdown files for each category.
 - `templates/problem-template.cpp` — C++ starter with test harness.
 - `templates/problem-template.js` — JS starter with test harness.
+- `templates/problem-template.cs` — C# starter with test harness.
+- `visualizer/` — HTML5 Canvas DSA visualizer for interactive explanations.
+
+## DSA Visualizer
+
+The `visualizer/` directory contains an HTML5 Canvas-based interactive visualization tool.
+
+### How to Use
+
+1. Open `visualizer/index.html` in a browser
+2. Select a visualization from the dropdown
+3. Use Previous/Next/Play buttons to step through the algorithm
+4. Watch the explanation panel for step-by-step logic
+
+### Available Visualizations
+
+- **Arrays & Hashing:** Contains Duplicate, Valid Anagram, Two Sum
+- **Two Pointers:** Valid Palindrome, Container With Most Water
+- **Sliding Window:** Longest Substring Without Repeating Characters
+
+### Adding New Visualizations
+
+Create a new scene generator function in `js/drawings/<category>.js`:
+
+```javascript
+function createMyVisualization() {
+    const steps = [];
+    steps.push({
+        explanation: "Step 1 description...",
+        timeComplexity: "O(n)",
+        spaceComplexity: "O(1)",
+        render: (engine) => {
+            // Use engine.drawArray(), engine.drawHashMap(), etc.
+        }
+    });
+    return steps;
+}
+```
+
+Then register it in `js/app.js`:
+```javascript
+sceneManager.register('my-visualization', createMyVisualization);
+```
+
+### Drawing API
+
+- `engine.drawArray(arr, x, y, highlights, size, gap)` — Draw array with colored highlights
+- `engine.drawHashMap(map, x, y)` — Draw key-value pairs
+- `engine.drawTwoPointers(arr, left, right, x, y)` — Draw left/right pointers
+- `engine.drawArrow(fromX, fromY, toX, toY, color, label)` — Draw arrows
+- `engine.drawText(text, x, y, color, size, align)` — Draw annotations
 
 ## Notes
 
 - Always prefer C++ for DSA problems due to standard library richness and interview realism.
+- C# is also supported with `dotnet` runtime.
 - For JS, use Node.js. Assume ES2020+ features are available.
 - When debugging, ask the student what they think is wrong before revealing the bug.
+- Use the visualizer to explain complex algorithms visually when text is insufficient.
 - Keep sessions energetic but challenging. The goal is durable understanding, not just solutions.
