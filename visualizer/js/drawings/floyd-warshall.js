@@ -378,11 +378,11 @@ function drawMatrix(engine, matrix, x, y, title, highlightK, highlightI, highlig
     }
 }
 
-// Draw a directed graph with curved edges to avoid overlap
+// Draw a directed graph with parallel arrows for bidirectional edges
 function drawGraph(engine, matrix, x, y) {
     const ctx = engine.ctx;
 
-    // Diamond layout for clarity
+    // Diamond layout
     const positions = [
         {x: x + 125, y: y + 40},    // 0: top
         {x: x + 240, y: y + 120},   // 1: right
@@ -391,81 +391,78 @@ function drawGraph(engine, matrix, x, y) {
     ];
 
     const V = matrix.length;
+    const nodeRadius = 22;
+    const offsetDist = 8; // parallel offset for bidirectional edges
 
-    // Draw edges with curves for bidirectional pairs
+    // First pass: draw all edges
     for (let i = 0; i < V; i++) {
         for (let j = 0; j < V; j++) {
             if (i !== j && matrix[i][j] !== Infinity) {
                 const from = positions[i];
                 const to = positions[j];
                 const weight = matrix[i][j];
-
-                // Check if reverse edge exists (for curve offset)
                 const hasReverse = matrix[j][i] !== Infinity;
-                const isReversePair = hasReverse && j < i; // Only handle once
 
-                let startX = from.x, startY = from.y;
-                let endX = to.x, endY = to.y;
-                let cpX, cpY;
-                let offset = 0;
+                let sx = from.x, sy = from.y;
+                let ex = to.x, ey = to.y;
 
                 if (hasReverse) {
-                    // Offset one of the bidirectional edges
-                    offset = (i < j) ? 15 : -15;
-                }
+                    // Offset parallel to the edge for bidirectional pairs
+                    const dx = to.x - from.x;
+                    const dy = to.y - from.y;
+                    const len = Math.sqrt(dx * dx + dy * dy);
+                    // Perpendicular direction
+                    const perpX = -(dy / len) * offsetDist;
+                    const perpY = (dx / len) * offsetDist;
 
-                // Calculate control point for quadratic curve
-                const midX = (from.x + to.x) / 2;
-                const midY = (from.y + to.y) / 2;
-                const perpX = -(to.y - from.y);
-                const perpY = (to.x - from.x);
-                const len = Math.sqrt(perpX * perpX + perpY * perpY);
-                if (len > 0) {
-                    cpX = midX + (perpX / len) * offset;
-                    cpY = midY + (perpY / len) * offset;
-                } else {
-                    cpX = midX;
-                    cpY = midY;
+                    if (i < j) {
+                        sx += perpX; sy += perpY;
+                        ex += perpX; ey += perpY;
+                    } else {
+                        sx -= perpX; sy -= perpY;
+                        ex -= perpX; ey -= perpY;
+                    }
                 }
 
                 // Shorten line to not overlap node
-                const nodeRadius = 22;
-                const tStart = nodeRadius / Math.sqrt((cpX - from.x)**2 + (cpY - from.y)**2);
-                const tEnd = 1 - nodeRadius / Math.sqrt((to.x - cpX)**2 + (to.y - cpY)**2);
+                const dx = ex - sx;
+                const dy = ey - sy;
+                const len = Math.sqrt(dx * dx + dy * dy);
+                const unitX = dx / len;
+                const unitY = dy / len;
 
-                const sx = (1 - tStart) * from.x + tStart * cpX;
-                const sy = (1 - tStart) * from.y + tStart * cpY;
-                const ex = (1 - tEnd) * cpX + tEnd * to.x;
-                const ey = (1 - tEnd) * cpY + tEnd * to.y;
+                const startX = sx + unitX * nodeRadius;
+                const startY = sy + unitY * nodeRadius;
+                const endX = ex - unitX * nodeRadius;
+                const endY = ey - unitY * nodeRadius;
 
-                // Draw curved edge
+                // Draw edge line
                 ctx.strokeStyle = '#555';
                 ctx.lineWidth = 1.5;
                 ctx.beginPath();
-                ctx.moveTo(sx, sy);
-                ctx.quadraticCurveTo(cpX, cpY, ex, ey);
+                ctx.moveTo(startX, startY);
+                ctx.lineTo(endX, endY);
                 ctx.stroke();
 
                 // Arrowhead at end
-                const angle = Math.atan2(ey - cpY, ex - cpX);
+                const angle = Math.atan2(endY - startY, endX - startX);
                 const headLen = 8;
 
                 ctx.beginPath();
-                ctx.moveTo(ex, ey);
-                ctx.lineTo(ex - headLen * Math.cos(angle - Math.PI/6), ey - headLen * Math.sin(angle - Math.PI/6));
-                ctx.lineTo(ex - headLen * Math.cos(angle + Math.PI/6), ey - headLen * Math.sin(angle + Math.PI/6));
+                ctx.moveTo(endX, endY);
+                ctx.lineTo(endX - headLen * Math.cos(angle - Math.PI/6), endY - headLen * Math.sin(angle - Math.PI/6));
+                ctx.lineTo(endX - headLen * Math.cos(angle + Math.PI/6), endY - headLen * Math.sin(angle + Math.PI/6));
                 ctx.closePath();
                 ctx.fillStyle = '#555';
                 ctx.fill();
 
-                // Weight label at midpoint of curve
-                const labelT = 0.5;
-                const labelX = (1 - labelT) * (1 - labelT) * from.x + 2 * (1 - labelT) * labelT * cpX + labelT * labelT * to.x;
-                const labelY = (1 - labelT) * (1 - labelT) * from.y + 2 * (1 - labelT) * labelT * cpY + labelT * labelT * to.y;
+                // Weight label at midpoint
+                const midX = (startX + endX) / 2;
+                const midY = (startY + endY) / 2;
 
                 ctx.fillStyle = '#1a1a2e';
                 ctx.beginPath();
-                ctx.arc(labelX, labelY, 10, 0, Math.PI * 2);
+                ctx.arc(midX, midY, 10, 0, Math.PI * 2);
                 ctx.fill();
                 ctx.strokeStyle = '#555';
                 ctx.lineWidth = 1;
@@ -475,15 +472,15 @@ function drawGraph(engine, matrix, x, y) {
                 ctx.font = 'bold 11px monospace';
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
-                ctx.fillText(String(weight), labelX, labelY);
+                ctx.fillText(String(weight), midX, midY);
             }
         }
     }
 
-    // Draw nodes
+    // Draw nodes on top
     positions.forEach((pos, i) => {
         ctx.beginPath();
-        ctx.arc(pos.x, pos.y, 22, 0, Math.PI * 2);
+        ctx.arc(pos.x, pos.y, nodeRadius, 0, Math.PI * 2);
         ctx.fillStyle = '#0f3460';
         ctx.fill();
         ctx.strokeStyle = '#eee';
