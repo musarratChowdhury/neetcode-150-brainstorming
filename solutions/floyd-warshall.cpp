@@ -34,60 +34,126 @@
 
 #include <iostream>
 #include <vector>
-#include <cassert>
+#include <algorithm>
 
 using namespace std;
 
 const int INF = 1e9;
+const int MAXN = 105;
+
+// Global array for CP-style standalone function
+int d[MAXN][MAXN];
 
 // ============================================================
-// TODO: Implement the Floyd-Warshall algorithm
+// Competitive Programming Style Implementation
 // ============================================================
 //
-// Hints (Socratic method - think before looking):
+// Why this style?
+// - Static arrays are faster (cache-friendly, no allocation)
+// - 1-indexed matches most CP problem input formats
+// - Handles multiple edges with min() on input
+// - Can treat as undirected by setting both d[u][v] and d[v][u]
 //
-// 1. What is the state we're maintaining? A matrix of distances.
-//    What does dist[i][j] represent?
-//
-// 2. The key insight: "Can vertex k improve the path from i to j?"
-//    How do we express this mathematically?
-//
-// 3. Why do we need THREE nested loops? What does each loop represent?
-//    - Outer loop (k): ???
-//    - Middle loop (i): ???
-//    - Inner loop (j): ???
-//
-// 4. What is the update rule? (think about the DP recurrence)
-//    dist[i][j] = ___________________________
-//
-// 5. What do we need to handle if there is no path?
-//    (check if dist[i][k] or dist[k][j] is INF before adding)
-//
-// 6. How do we detect a negative cycle?
-//    (check if any dist[i][i] < 0 after the algorithm)
+// CRITICAL: Always check for INF before adding to avoid overflow!
+//   If d[i][k] = INF and d[k][j] is negative:
+//   INF + negative = some large positive number (not INF!)
+//   This produces a fake "valid" path when none exists.
 //
 // ============================================================
 
 class Solution {
 public:
     vector<vector<int>> floydWarshall(vector<vector<int>>& graph) {
-        int V = graph.size();
-        // TODO: Implement the algorithm
-        //
-        // Steps:
-        // 1. Create a distance matrix initialized with graph values
-        // 2. For each intermediate vertex k:
-        //    For each source vertex i:
-        //      For each destination vertex j:
-        //        If dist[i][k] + dist[k][j] < dist[i][j]:
-        //          Update dist[i][j]
-        // 3. Check for negative cycles
-        // 4. Return the distance matrix
+        int n = graph.size();
         
-        // Placeholder - replace with your implementation
-        return graph;
+        // Use static-style local array (CP pattern)
+        // +1 for 1-indexing convenience
+        int d[MAXN][MAXN];
+        
+        // Step 1: Initialize
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                // graph is 0-indexed, d is 1-indexed
+                d[i][j] = graph[i-1][j-1];
+            }
+        }
+        
+        // Step 2: Floyd-Warshall with INF guard
+        for (int k = 1; k <= n; k++) {
+            for (int i = 1; i <= n; i++) {
+                for (int j = 1; j <= n; j++) {
+                    // INF CHECK: skip if either segment doesn't exist
+                    if (d[i][k] == INF || d[k][j] == INF) continue;
+                    
+                    d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+                }
+            }
+        }
+        
+        // Step 3: Copy back to vector
+        vector<vector<int>> result(n, vector<int>(n));
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                result[i-1][j-1] = d[i][j];
+            }
+        }
+        
+        return result;
     }
 };
+
+// ============================================================
+// Standalone CP-Style Function (for direct use in contests)
+// ============================================================
+//
+// Usage in CP:
+//   int n, m; cin >> n >> m;
+//   cpFloydWarshall(n, m);
+//
+// Assumes global: int d[MAXN][MAXN];
+//
+// ============================================================
+
+void cpFloydWarshall(int n, int m) {
+    // Initialize
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            d[i][j] = INF;
+        }
+    }
+    for (int i = 1; i <= n; i++) {
+        d[i][i] = 0;
+    }
+    
+    // Read edges
+    for (int i = 0; i < m; i++) {
+        int u, v, w;
+        cin >> u >> v >> w;
+        
+        // For directed graph:
+        d[u][v] = min(d[u][v], w);
+        
+        // For undirected graph (uncomment if needed):
+        // d[v][u] = min(d[v][u], w);
+    }
+    
+    // Run algorithm
+    for (int k = 1; k <= n; k++) {
+        for (int i = 1; i <= n; i++) {
+            for (int j = 1; j <= n; j++) {
+                if (d[i][k] == INF || d[k][j] == INF) continue;
+                d[i][j] = min(d[i][j], d[i][k] + d[k][j]);
+            }
+        }
+    }
+    
+    // Output
+    for (int i = 1; i <= n; i++) {
+        for (int j = 1; j <= n; j++) {
+            cout << (d[i][j] == INF ? -1 : d[i][j]) << " \n"[j == n];
+        }
+    }
+}
 
 // ============================================================
 // Mini Test Harness (self-contained)
@@ -120,6 +186,9 @@ bool matricesEqual(const vector<vector<int>>& a, const vector<vector<int>>& b) {
 }
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+    
     Solution sol;
     int passed = 0;
     int total = 0;
