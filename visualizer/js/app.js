@@ -14,6 +14,7 @@ sceneManager.register('two-sum', createTwoSumScene);
 sceneManager.register('two-pointers', createTwoPointersScene);
 sceneManager.register('sliding-window', createSlidingWindowScene);
 sceneManager.register('bellman-ford', createBellmanFordScene);
+sceneManager.register('floyd-warshall', createFloydWarshallScene);
 
 // UI Event Handlers
 document.getElementById('scene-selector').addEventListener('change', (e) => {
