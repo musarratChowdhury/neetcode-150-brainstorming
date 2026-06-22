@@ -1,11 +1,11 @@
 {
   "student": "user",
   "current_category": "Arrays & Hashing",
-  "current_problem_index": 1,
+  "current_problem_index": 3,
   "problems": [
     {"id": "contains-duplicate", "name": "Contains Duplicate", "category": "Arrays & Hashing", "difficulty": "Easy", "blind75": true, "status": "solved", "confidence": 5, "last_attempted": "2026-05-09", "next_review": "2026-05-16", "language_used": "cpp", "notes": "Used unordered_set for O(1) lookups. Initially used map but refactored to set since counting isn't needed."},
     {"id": "valid-anagram", "name": "Valid Anagram", "category": "Arrays & Hashing", "difficulty": "Easy", "blind75": true, "status": "solved", "confidence": 5, "last_attempted": "2026-05-09", "next_review": "2026-05-16", "language_used": "cpp", "notes": "Used both unordered_map and int[26] approaches. Manual loop preferred over std::all_of for interview clarity."},
-    {"id": "two-sum", "name": "Two Sum", "category": "Arrays & Hashing", "difficulty": "Easy", "blind75": true, "status": "not_started", "confidence": 0, "last_attempted": null, "next_review": null, "language_used": null, "notes": ""},
+    {"id": "two-sum", "name": "Two Sum", "category": "Arrays & Hashing", "difficulty": "Easy", "blind75": true, "status": "reviewing", "confidence": 1, "last_attempted": "2026-06-22", "next_review": "2026-06-23", "language_used": "cpp", "notes": "Walked through algorithm and edge cases (lookup-before-store for [3,3] case) but did not write/run code. Needs full implementation pass."},
     {"id": "group-anagrams", "name": "Group Anagrams", "category": "Arrays & Hashing", "difficulty": "Medium", "blind75": true, "status": "not_started", "confidence": 0, "last_attempted": null, "next_review": null, "language_used": null, "notes": ""},
     {"id": "top-k-frequent-elements", "name": "Top K Frequent Elements", "category": "Arrays & Hashing", "difficulty": "Medium", "blind75": true, "status": "not_started", "confidence": 0, "last_attempted": null, "next_review": null, "language_used": null, "notes": ""},
     {"id": "product-of-array-except-self", "name": "Product of Array Except Self", "category": "Arrays & Hashing", "difficulty": "Medium", "blind75": true, "status": "not_started", "confidence": 0, "last_attempted": null, "next_review": null, "language_used": null, "notes": ""},
