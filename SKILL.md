@@ -80,6 +80,20 @@ For every problem, follow this flow strictly. Do NOT skip phases.
 - Ask: *"How would this change if [constraint changes]?"*
 - Discuss 1–2 real interview follow-ups.
 
+### Phase 6.5 — Cross-Judge Practice
+- Open `data/related_problems.json`. Look up the current problem's pattern tags via the `problem_to_patterns` map.
+- For each tag, load that pattern's `related_problems` pool (LeetCode non-NeetCode-150 + GeeksforGeeks). Deduplicate across tags. Pick 3–5 to suggest.
+- Present them as a small table grouped by judge, with the `why_similar` note for each. Format:
+  ```
+  📚 Cross-Judge Practice (pattern: <name>)
+  | Judge | Problem | Difficulty | Why |
+  | LeetCode | <title> | <Easy/Med/Hard> | <why_similar> |
+  | GeeksforGeeks | <title> | <Article> | <why_similar> |
+  ```
+- Do NOT solve them — just hand the student a short reading list and let them pick one if interested.
+- If the problem has no tag (e.g., brand-new problem not yet in the dataset), fall back to a "pattern → problems" message derived from the Phase 1 primer and ask the student to add a tag to `data/related_problems.json` after the session.
+- If the same problem appears via multiple tags, mention it once but reference all matching patterns in a footnote.
+
 ### Phase 7 — Spaced Repetition
 - Update `neetcode-progress.json`.
 - Set `next_review` based on confidence:
@@ -395,12 +409,31 @@ For every problem, follow this flow strictly. Do NOT skip phases.
 ## Workspace Files
 
 - `neetcode-progress.json` — Tracks your problem status, confidence, and next review dates.
+- `data/related_problems.json` — Cross-judge practice suggestions (see Cross-Judge Suggestions below).
 - `sessions/` — Contains dated session logs with insights and code.
 - `concepts/` — Deep-dive markdown files for each category.
 - `templates/problem-template.cpp` — C++ starter with test harness.
 - `templates/problem-template.js` — JS starter with test harness.
 - `templates/problem-template.cs` — C# starter with test harness.
 - `visualizer/` — HTML5 Canvas DSA visualizer for interactive explanations.
+
+## Cross-Judge Suggestions
+
+`data/related_problems.json` powers Phase 6.5. It contains two structures:
+
+- **`problem_to_patterns`** — maps each NeetCode 150 problem ID to one or more algorithmic pattern tags (e.g., `trapping-rain-water` → `["two-pointers", "stack-basics"]`). Every entry in `neetcode-progress.json` is represented.
+- **`patterns`** — maps each pattern tag to a curated pool of related problems from **LeetCode (non-NeetCode-150)** and **GeeksforGeeks**. Each entry has `id`, `title`, `url`, `difficulty`, and `why_similar`. NeetCode 150 problems are intentionally excluded from the pools to avoid self-suggestion.
+
+### Convention for adding a new pattern
+
+1. Pick a stable kebab-case tag (e.g., `segment-tree`, not `SegmentTree`).
+2. Add an entry under `patterns` with `name`, `recognition`, and a `related_problems` array (4–8 curated entries; mix judges when possible).
+3. Tag every relevant NeetCode 150 problem in `problem_to_patterns`. If a problem is multi-pattern, add the new tag alongside existing ones rather than replacing.
+4. Re-run Phase 6.5 to verify suggestions show up correctly.
+
+### Stats
+- 48 pattern tags, 150 NeetCode 150 problem mappings, ~200 curated related problems (≈75% LeetCode, ≈25% GeeksforGeeks).
+- The dataset is fully offline — no live web fetch is required at solve time.
 
 ## DSA Visualizer
 

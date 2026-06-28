@@ -1,0 +1,659 @@
+{
+  "$schema_version": "1.0",
+  "description": "Cross-judge practice suggestions for NeetCode 150. Each NeetCode 150 problem is tagged with one or more algorithmic pattern tags; each pattern maps to a curated pool of related problems from LeetCode (non-NeetCode-150 entries) and GeeksforGeeks. Related problems intentionally exclude the NeetCode 150 list to avoid self-suggestion.",
+  "judges": {
+    "leetcode": {
+      "name": "LeetCode",
+      "url_template": "https://leetcode.com/problems/<slug>/"
+    },
+    "geeksforgeeks": {
+      "name": "GeeksforGeeks",
+      "url_template": "https://www.geeksforgeeks.org/<slug>/"
+    }
+  },
+  "problem_to_patterns": {
+    "contains-duplicate": ["hash-map"],
+    "valid-anagram": ["frequency-counting", "hash-map"],
+    "two-sum": ["hash-map"],
+    "group-anagrams": ["frequency-counting", "hash-map"],
+    "top-k-frequent-elements": ["frequency-counting", "heap-topk"],
+    "product-of-array-except-self": ["prefix-suffix"],
+    "valid-sudoku": ["hash-map"],
+    "encode-and-decode-strings": ["string-encoding"],
+    "longest-consecutive-sequence": ["hash-map", "union-find"],
+    "valid-palindrome": ["two-pointers"],
+    "two-sum-ii": ["two-pointers"],
+    "3sum": ["two-pointers"],
+    "container-with-most-water": ["two-pointers"],
+    "trapping-rain-water": ["two-pointers", "stack-basics"],
+    "best-time-to-buy-and-sell-stock": ["dp-kadane", "sliding-window"],
+    "longest-substring-without-repeating-characters": ["sliding-window"],
+    "longest-repeating-character-replacement": ["sliding-window"],
+    "permutation-in-string": ["sliding-window", "frequency-counting"],
+    "minimum-window-substring": ["sliding-window"],
+    "sliding-window-maximum": ["sliding-window", "monotonic-queue"],
+    "valid-parentheses": ["stack-basics"],
+    "min-stack": ["stack-basics"],
+    "evaluate-reverse-polish-notation": ["stack-basics"],
+    "generate-parentheses": ["stack-basics", "backtracking-construct"],
+    "daily-temperatures": ["monotonic-stack"],
+    "car-fleet": ["monotonic-stack"],
+    "largest-rectangle-in-histogram": ["monotonic-stack"],
+    "binary-search": ["binary-search"],
+    "search-a-2d-matrix": ["binary-search", "math-matrix"],
+    "koko-eating-bananas": ["binary-search-answer"],
+    "find-minimum-in-rotated-sorted-array": ["binary-search-rotated"],
+    "search-in-rotated-sorted-array": ["binary-search-rotated"],
+    "time-based-key-value-store": ["binary-search", "hash-map"],
+    "median-of-two-sorted-arrays": ["binary-search-answer", "dp-2d-string"],
+    "reverse-linked-list": ["linked-list-reversal"],
+    "merge-two-sorted-lists": ["linked-list-merge"],
+    "reorder-list": ["linked-list-reversal", "linked-list-fast-slow"],
+    "remove-nth-node-from-end-of-list": ["linked-list-fast-slow"],
+    "copy-list-with-random-pointer": ["linked-list-hash", "hash-map"],
+    "add-two-numbers": ["linked-list-merge", "math-number"],
+    "linked-list-cycle": ["linked-list-fast-slow"],
+    "find-the-duplicate-number": ["linked-list-fast-slow"],
+    "lru-cache": ["linked-list-reversal", "hash-map"],
+    "merge-k-sorted-lists": ["linked-list-merge", "heap-merging"],
+    "reverse-nodes-in-k-group": ["linked-list-reversal"],
+    "invert-binary-tree": ["tree-dfs"],
+    "maximum-depth-of-binary-tree": ["tree-dfs"],
+    "diameter-of-binary-tree": ["tree-dfs"],
+    "balanced-binary-tree": ["tree-dfs"],
+    "same-tree": ["tree-dfs"],
+    "subtree-of-another-tree": ["tree-dfs"],
+    "lowest-common-ancestor-of-a-binary-search-tree": ["bst-property", "tree-dfs"],
+    "binary-tree-level-order-traversal": ["tree-bfs"],
+    "binary-tree-right-side-view": ["tree-bfs", "tree-dfs"],
+    "count-good-nodes-in-binary-tree": ["tree-dfs"],
+    "validate-binary-search-tree": ["bst-property", "tree-dfs"],
+    "kth-smallest-element-in-a-bst": ["bst-property", "tree-bfs"],
+    "construct-binary-tree-from-preorder-and-inorder-traversal": ["tree-dfs", "hash-map"],
+    "binary-tree-maximum-path-sum": ["tree-dfs"],
+    "serialize-and-deserialize-binary-tree": ["tree-dfs", "tree-bfs"],
+    "kth-largest-element-in-a-stream": ["heap-topk"],
+    "last-stone-weight": ["heap-topk"],
+    "k-closest-points-to-origin": ["heap-topk"],
+    "kth-largest-element-in-an-array": ["heap-topk", "quickselect"],
+    "task-scheduler": ["heap-scheduling", "greedy"],
+    "design-twitter": ["heap-merging", "hash-map"],
+    "find-median-from-data-stream": ["heap-median"],
+    "subsets": ["backtracking-subsets"],
+    "combination-sum": ["backtracking-subsets"],
+    "permutations": ["backtracking-permutations"],
+    "subsets-ii": ["backtracking-subsets"],
+    "combination-sum-ii": ["backtracking-subsets"],
+    "word-search": ["backtracking-grid"],
+    "palindrome-partitioning": ["backtracking-subsets", "dp-2d-string"],
+    "letter-combinations-of-a-phone-number": ["backtracking-construct"],
+    "n-queens": ["backtracking-construct"],
+    "implement-trie-prefix-tree": ["trie"],
+    "design-add-and-search-words-data-structure": ["trie", "backtracking-construct"],
+    "word-search-ii": ["trie", "backtracking-grid"],
+    "number-of-islands": ["graph-bfs-grid", "union-find"],
+    "clone-graph": ["graph-bfs", "graph-dfs"],
+    "max-area-of-island": ["graph-bfs-grid", "graph-dfs"],
+    "pacific-atlantic-water-flow": ["graph-bfs-grid", "graph-dfs"],
+    "surrounded-regions": ["graph-bfs-grid", "union-find"],
+    "rotting-oranges": ["graph-bfs-grid"],
+    "walls-and-gates": ["graph-bfs-grid"],
+    "course-schedule": ["topological-sort", "graph-dfs"],
+    "course-schedule-ii": ["topological-sort", "graph-bfs"],
+    "redundant-connection": ["union-find"],
+    "number-of-connected-components-in-an-undirected-graph": ["union-find"],
+    "graph-valid-tree": ["union-find", "graph-dfs"],
+    "word-ladder": ["graph-bfs"],
+    "reconstruct-itinerary": ["graph-eulerian", "graph-dfs"],
+    "min-cost-to-connect-all-points": ["union-find", "mst"],
+    "network-delay-time": ["dijkstra"],
+    "swim-in-rising-water": ["graph-bfs-grid", "union-find", "binary-search-answer"],
+    "alien-dictionary": ["topological-sort", "graph-dfs"],
+    "cheapest-flights-within-k-stops": ["dijkstra", "dp-1d"],
+    "climbing-stairs": ["dp-1d"],
+    "min-cost-climbing-stairs": ["dp-1d"],
+    "house-robber": ["dp-1d"],
+    "house-robber-ii": ["dp-1d"],
+    "longest-palindromic-substring": ["dp-2d-string", "dp-interval"],
+    "palindromic-substrings": ["dp-2d-string"],
+    "decode-ways": ["dp-1d"],
+    "coin-change": ["dp-knapsack"],
+    "maximum-product-subarray": ["dp-kadane"],
+    "word-break": ["dp-1d", "trie"],
+    "longest-increasing-subsequence": ["dp-1d", "binary-search-answer"],
+    "partition-equal-subset-sum": ["dp-knapsack"],
+    "unique-paths": ["dp-2d-grid"],
+    "longest-common-subsequence": ["dp-2d-string"],
+    "best-time-to-buy-and-sell-stock-with-cooldown": ["dp-1d", "greedy"],
+    "coin-change-ii": ["dp-knapsack"],
+    "target-sum": ["dp-knapsack"],
+    "interleaving-string": ["dp-2d-string"],
+    "longest-increasing-path-in-a-matrix": ["dp-2d-grid", "graph-bfs-grid"],
+    "distinct-subsequences": ["dp-2d-string"],
+    "edit-distance": ["dp-2d-string"],
+    "burst-balloons": ["dp-interval"],
+    "regular-expression-matching": ["dp-2d-string"],
+    "maximum-subarray": ["dp-kadane", "greedy"],
+    "jump-game": ["greedy"],
+    "jump-game-ii": ["greedy"],
+    "gas-station": ["greedy"],
+    "hand-of-straights": ["greedy", "hash-map"],
+    "merge-triplets-to-form-target-triplet": ["greedy"],
+    "partition-labels": ["greedy", "intervals"],
+    "valid-parenthesis-string": ["greedy"],
+    "insert-interval": ["intervals"],
+    "merge-intervals": ["intervals"],
+    "non-overlapping-intervals": ["intervals", "greedy"],
+    "meeting-rooms": ["intervals"],
+    "meeting-rooms-ii": ["intervals"],
+    "minimum-interval-to-include-each-query": ["intervals", "heap-merging"],
+    "rotate-image": ["math-matrix"],
+    "spiral-matrix": ["math-matrix"],
+    "set-matrix-zeroes": ["math-matrix", "hash-map"],
+    "happy-number": ["math-number", "linked-list-fast-slow"],
+    "plus-one": ["math-number"],
+    "powx-n": ["math-number"],
+    "multiply-strings": ["math-number", "string-encoding"],
+    "detect-squares": ["math-matrix", "hash-map"],
+    "single-number": ["bit-manipulation"],
+    "number-of-1-bits": ["bit-manipulation"],
+    "counting-bits": ["bit-manipulation", "dp-1d"],
+    "reverse-bits": ["bit-manipulation"],
+    "missing-number": ["bit-manipulation", "math-number"],
+    "sum-of-two-integers": ["bit-manipulation"],
+    "reverse-integer": ["math-number"]
+  },
+  "patterns": {
+    "two-pointers": {
+      "name": "Two Pointers",
+      "recognition": "Sorted array, palindrome check, pair/triplet sum, in-place partition, or container that grows with distance.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "16", "title": "3Sum Closest", "url": "https://leetcode.com/problems/3sum-closest/", "difficulty": "Medium", "why_similar": "Same sort + two-pointer template, target sum problem with 'closest' twist." },
+        { "judge": "leetcode", "id": "18", "title": "4Sum", "url": "https://leetcode.com/problems/4sum/", "difficulty": "Medium", "why_similar": "Generalizes the k-sum template using two pointers at the inner level." },
+        { "judge": "leetcode", "id": "26", "title": "Remove Duplicates from Sorted Array", "url": "https://leetcode.com/problems/remove-duplicates-from-sorted-array/", "difficulty": "Easy", "why_similar": "In-place two-pointer partition: slow writes unique, fast scans." },
+        { "judge": "leetcode", "id": "27", "title": "Remove Element", "url": "https://leetcode.com/problems/remove-element/", "difficulty": "Easy", "why_similar": "In-place two-pointer deletion; canonical 'slow-fast' pattern." },
+        { "judge": "leetcode", "id": "75", "title": "Sort Colors", "url": "https://leetcode.com/problems/sort-colors/", "difficulty": "Medium", "why_similar": "Dutch National Flag — three-pointer partition in one pass." },
+        { "judge": "leetcode", "id": "881", "title": "Boats to Save People", "url": "https://leetcode.com/problems/boats-to-save-people/", "difficulty": "Medium", "why_similar": "Pair heaviest with lightest on a sorted array to minimize count." },
+        { "judge": "geeksforgeeks", "id": "two-pointers-technique", "title": "Two Pointers Technique", "url": "https://www.geeksforgeeks.org/two-pointers-technique/", "difficulty": "Article", "why_similar": "Written walk-through of when to use left/right vs. slow/fast pointers." }
+      ]
+    },
+    "sliding-window": {
+      "name": "Sliding Window",
+      "recognition": "Longest/shortest/minimum contiguous subarray or substring satisfying a property.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "209", "title": "Minimum Size Subarray Sum", "url": "https://leetcode.com/problems/minimum-size-subarray-sum/", "difficulty": "Medium", "why_similar": "Variable window with sum constraint; canonical 'shrink while valid' loop." },
+        { "judge": "leetcode", "id": "438", "title": "Find All Anagrams in a String", "url": "https://leetcode.com/problems/find-all-anagrams-in-a-string/", "difficulty": "Medium", "why_similar": "Fixed window with character frequency matching." },
+        { "judge": "leetcode", "id": "643", "title": "Maximum Average Subarray I", "url": "https://leetcode.com/problems/maximum-average-subarray-i/", "difficulty": "Easy", "why_similar": "Smallest fixed-window example; warm-up before harder problems." },
+        { "judge": "leetcode", "id": "904", "title": "Fruit Into Baskets", "url": "https://leetcode.com/problems/fruit-into-baskets/", "difficulty": "Medium", "why_similar": "Longest subarray with at most 2 distinct values — variable window with map." },
+        { "judge": "leetcode", "id": "1004", "title": "Max Consecutive Ones III", "url": "https://leetcode.com/problems/max-consecutive-ones-iii/", "difficulty": "Medium", "why_similar": "Variable window with a 'budget' counter (flips / replacements)." },
+        { "judge": "geeksforgeeks", "id": "sliding-window-technique", "title": "Sliding Window Technique", "url": "https://www.geeksforgeeks.org/window-sliding-technique/", "difficulty": "Article", "why_similar": "Step-by-step article covering both fixed and variable window variants." }
+      ]
+    },
+    "hash-map": {
+      "name": "Hash Map / Set",
+      "recognition": "Need O(1) lookups, counting, deduplication, or grouping by key.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "169", "title": "Majority Element", "url": "https://leetcode.com/problems/majority-element/", "difficulty": "Easy", "why_similar": "Boyer-Moore vote or frequency map; classic hash-voting problem." },
+        { "judge": "leetcode", "id": "229", "title": "Majority Element II", "url": "https://leetcode.com/problems/majority-element-ii/", "difficulty": "Medium", "why_similar": "Extended Boyer-Moore to find all elements appearing > n/3 times." },
+        { "judge": "leetcode", "id": "383", "title": "Ransom Note", "url": "https://leetcode.com/problems/ransom-note/", "difficulty": "Easy", "why_similar": "Multi-set containment via frequency map." },
+        { "judge": "leetcode", "id": "387", "title": "First Unique Character in a String", "url": "https://leetcode.com/problems/first-unique-character-in-a-string/", "difficulty": "Easy", "why_similar": "Two-pass frequency counting, then linear scan." },
+        { "judge": "leetcode", "id": "560", "title": "Subarray Sum Equals K", "url": "https://leetcode.com/problems/subarray-sum-equals-k/", "difficulty": "Medium", "why_similar": "Prefix sum + hashmap to count subarrays with a given sum." },
+        { "judge": "geeksforgeeks", "id": "hashing-practice-problems", "title": "Hashing Practice Problems", "url": "https://www.geeksforgeeks.org/hashing-practice-problems/", "difficulty": "Article", "why_similar": "GfG's curated hashing problem set with editorial." }
+      ]
+    },
+    "frequency-counting": {
+      "name": "Frequency Counting",
+      "recognition": "Anagrams, character/word counts, k-frequent queries, or signature-based grouping.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "451", "title": "Sort Characters By Frequency", "url": "https://leetcode.com/problems/sort-characters-by-frequency/", "difficulty": "Medium", "why_similar": "Bucket-sort by frequency, not by value." },
+        { "judge": "leetcode", "id": "692", "title": "Top K Frequent Words", "url": "https://leetcode.com/problems/top-k-frequent-words/", "difficulty": "Medium", "why_similar": "Frequency + heap + tie-breaking; interview classic." },
+        { "judge": "leetcode", "id": "1054", "title": "Distant Barcodes", "url": "https://leetcode.com/problems/distant-barcodes/", "difficulty": "Medium", "why_similar": "Rearrange so that no two adjacent are equal using max frequency." },
+        { "judge": "leetcode", "id": "1189", "title": "Maximum Number of Balloons", "url": "https://leetcode.com/problems/maximum-number-of-balloons/", "difficulty": "Easy", "why_similar": "Frequency minimum across characters, accounting for letter repeats." },
+        { "judge": "geeksforgeeks", "id": "frequency-counting", "title": "Frequency Counting Technique", "url": "https://www.geeksforgeeks.org/frequency-counting-technique/", "difficulty": "Article", "why_similar": "Article on array-of-26 vs unordered_map tradeoffs." }
+      ]
+    },
+    "string-encoding": {
+      "name": "String Encoding / Parsing",
+      "recognition": "Serialize/deserialize a list of strings, parse nested structures, or handle escape characters.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "394", "title": "Decode String", "url": "https://leetcode.com/problems/decode-string/", "difficulty": "Medium", "why_similar": "Nested encoding (k[encoded]) — stack or recursion." },
+        { "judge": "leetcode", "id": "1249", "title": "Minimum Remove to Make Valid Parentheses", "url": "https://leetcode.com/problems/minimum-remove-to-make-valid-parentheses/", "difficulty": "Medium", "why_similar": "Stack-based filtering; same family as Encode/Decode Strings." },
+        { "judge": "leetcode", "id": "443", "title": "String Compression", "url": "https://leetcode.com/problems/string-compression/", "difficulty": "Medium", "why_similar": "In-place run-length encoding with two pointers." },
+        { "judge": "leetcode", "id": "8", "title": "String to Integer (atoi)", "url": "https://leetcode.com/problems/string-to-integer-atoi/", "difficulty": "Medium", "why_similar": "Edge-case-heavy parser — practice in handling whitespace, sign, overflow." },
+        { "judge": "geeksforgeeks", "id": "run-length-encoding", "title": "Run Length Encoding", "url": "https://www.geeksforgeeks.org/run-length-encoding/", "difficulty": "Article", "why_similar": "Reference implementation of the RLE pattern." }
+      ]
+    },
+    "prefix-suffix": {
+      "name": "Prefix / Suffix Products",
+      "recognition": "For each index, compute something about all other positions (e.g., product, sum) without division.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "724", "title": "Find Pivot Index", "url": "https://leetcode.com/problems/find-pivot-index/", "difficulty": "Easy", "why_similar": "Left/right prefix sums in one pass." },
+        { "judge": "leetcode", "id": "1991", "title": "Find the Middle Index in Array", "url": "https://leetcode.com/problems/find-the-middle-index-in-array/", "difficulty": "Easy", "why_similar": "Same template as Pivot Index with shifted center." },
+        { "judge": "leetcode", "id": "1732", "title": "Find the Highest Altitude", "url": "https://leetcode.com/problems/find-the-highest-altitude/", "difficulty": "Easy", "why_similar": "Running prefix sum, find max." },
+        { "judge": "leetcode", "id": "1525", "title": "Number of Good Ways to Split a String", "url": "https://leetcode.com/problems/number-of-good-ways-to-split-a-string/", "difficulty": "Medium", "why_similar": "Two-frequency-array technique: distinct count on each side." },
+        { "judge": "geeksforgeeks", "id": "prefix-sum-array", "title": "Prefix Sum Array", "url": "https://www.geeksforgeeks.org/prefix-sum-array/", "difficulty": "Article", "why_similar": "Reference article on prefix sum and 2D prefix sum." }
+      ]
+    },
+    "stack-basics": {
+      "name": "Stack",
+      "recognition": "Matching pairs, nested structures, evaluation of reverse-notation, or next-step simulation.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1047", "title": "Remove All Adjacent Duplicates In String", "url": "https://leetcode.com/problems/remove-all-adjacent-duplicates-in-string/", "difficulty": "Easy", "why_similar": "Stack as a 'previous character' memory; simple variant." },
+        { "judge": "leetcode", "id": "844", "title": "Backspace String Compare", "url": "https://leetcode.com/problems/backspace-string-compare/", "difficulty": "Easy", "why_similar": "Simulate a stack with two pointers (reverse traversal)." },
+        { "judge": "leetcode", "id": "1021", "title": "Remove Outermost Parentheses", "url": "https://leetcode.com/problems/remove-outermost-parentheses/", "difficulty": "Easy", "why_similar": "Depth counter; warm-up before hard parentheses problems." },
+        { "judge": "leetcode", "id": "1190", "title": "Reverse Substrings Between Each Pair of Parentheses", "url": "https://leetcode.com/problems/reverse-substrings-between-each-pair-of-parentheses/", "difficulty": "Medium", "why_similar": "Stack + substring reversal, intermediate." },
+        { "judge": "geeksforgeeks", "id": "stack-data-structure", "title": "Stack Data Structure", "url": "https://www.geeksforgeeks.org/stack-data-structure/", "difficulty": "Article", "why_similar": "Reference article on stack operations and complexity." }
+      ]
+    },
+    "monotonic-stack": {
+      "name": "Monotonic Stack",
+      "recognition": "Next greater/smaller element, or 'nearest bigger/smaller to the left/right'.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "496", "title": "Next Greater Element I", "url": "https://leetcode.com/problems/next-greater-element-i/", "difficulty": "Easy", "why_similar": "The template problem for next-greater queries." },
+        { "judge": "leetcode", "id": "503", "title": "Next Greater Element II", "url": "https://leetcode.com/problems/next-greater-element-ii/", "difficulty": "Medium", "why_similar": "Circular array variant; same template, double the indices." },
+        { "judge": "leetcode", "id": "1019", "title": "Next Greater Node In Linked List", "url": "https://leetcode.com/problems/next-greater-node-in-linked-list/", "difficulty": "Medium", "why_similar": "Monotonic stack on a linked list — same logic, different container." },
+        { "judge": "leetcode", "id": "1944", "title": "Number of Visible People in a Queue", "url": "https://leetcode.com/problems/number-of-visible-people-in-a-queue/", "difficulty": "Hard", "why_similar": "Hard variant requiring count of visible, not just next." },
+        { "judge": "geeksforgeeks", "id": "monotonic-stack", "title": "Monotonic Stack", "url": "https://www.geeksforgeeks.org/monotonic-stack/", "difficulty": "Article", "why_similar": "GfG article on increasing vs decreasing stack and when to use which." }
+      ]
+    },
+    "binary-search": {
+      "name": "Binary Search",
+      "recognition": "Sorted array, 'find first/last true' in a boolean array, or any monotonic predicate.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "35", "title": "Search Insert Position", "url": "https://leetcode.com/problems/search-insert-position/", "difficulty": "Easy", "why_similar": "Smallest standard binary search on a sorted array." },
+        { "judge": "leetcode", "id": "69", "title": "Sqrt(x)", "url": "https://leetcode.com/problems/sqrtx/", "difficulty": "Easy", "why_similar": "Binary search on a value, not an index." },
+        { "judge": "leetcode", "id": "367", "title": "Valid Perfect Square", "url": "https://leetcode.com/problems/valid-perfect-square/", "difficulty": "Easy", "why_similar": "Predicate search: mid*mid <= n." },
+        { "judge": "leetcode", "id": "162", "title": "Find Peak Element", "url": "https://leetcode.com/problems/find-peak-element/", "difficulty": "Medium", "why_similar": "Binary search without sorted input — uses neighbor comparison." },
+        { "judge": "leetcode", "id": "852", "title": "Peak Index in a Mountain Array", "url": "https://leetcode.com/problems/peak-index-in-a-mountain-array/", "difficulty": "Medium", "why_similar": "Bitonic search; same template as rotated array." },
+        { "judge": "geeksforgeeks", "id": "binary-search", "title": "Binary Search", "url": "https://www.geeksforgeeks.org/binary-search/", "difficulty": "Article", "why_similar": "Article on iterative vs recursive and off-by-one pitfalls." }
+      ]
+    },
+    "binary-search-rotated": {
+      "name": "Binary Search on Rotated Array",
+      "recognition": "Sorted array rotated at an unknown pivot; one half is always sorted.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "81", "title": "Search in Rotated Sorted Array II", "url": "https://leetcode.com/problems/search-in-rotated-sorted-array-ii/", "difficulty": "Medium", "why_similar": "Same as the NeetCode problem but with duplicates — handle the ambiguity case." },
+        { "judge": "leetcode", "id": "154", "title": "Find Minimum in Rotated Sorted Array II", "url": "https://leetcode.com/problems/find-minimum-in-rotated-sorted-array-ii/", "difficulty": "Hard", "why_similar": "Duplicate-aware minimum search in rotated array." },
+        { "judge": "leetcode", "id": "540", "title": "Single Element in a Sorted Array", "url": "https://leetcode.com/problems/single-element-in-a-sorted-array/", "difficulty": "Medium", "why_similar": "Binary search using pair-index parity (related trick)." },
+        { "judge": "leetcode", "id": "1095", "title": "Find in Mountain Array", "url": "https://leetcode.com/problems/find-in-mountain-array/", "difficulty": "Hard", "why_similar": "Two-stage search: find peak, then binary search the relevant half." },
+        { "judge": "geeksforgeeks", "id": "search-an-element-in-a-sorted-and-rotated-array", "title": "Search in a Sorted and Rotated Array", "url": "https://www.geeksforgeeks.org/search-an-element-in-a-sorted-and-pivoted-array/", "difficulty": "Article", "why_similar": "Classic write-up of the sorted-half decision rule." }
+      ]
+    },
+    "binary-search-answer": {
+      "name": "Binary Search on Answer",
+      "recognition": "Minimize the maximum, find smallest divisor, or 'can we achieve X in K steps?' — predicate is monotonic.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1011", "title": "Capacity To Ship Packages Within D Days", "url": "https://leetcode.com/problems/capacity-to-ship-packages-within-d-days/", "difficulty": "Medium", "why_similar": "Minimize the maximum weight; binary search capacity, greedy check." },
+        { "judge": "leetcode", "id": "410", "title": "Split Array Largest Sum", "url": "https://leetcode.com/problems/split-array-largest-sum/", "difficulty": "Hard", "why_similar": "Same template, harder partitioning constraint." },
+        { "judge": "leetcode", "id": "1482", "title": "Minimum Number of Days to Make m Bouquets", "url": "https://leetcode.com/problems/minimum-number-of-days-to-make-m-bouquets/", "difficulty": "Medium", "why_similar": "Find earliest day X with monotonic 'is X feasible?' predicate." },
+        { "judge": "leetcode", "id": "1283", "title": "Find the Smallest Divisor Given a Threshold", "url": "https://leetcode.com/problems/find-the-smallest-divisor-given-a-threshold/", "difficulty": "Medium", "why_similar": "Canonical 'smallest divisor' search." },
+        { "judge": "geeksforgeeks", "id": "binary-search-on-answer", "title": "Binary Search on Answer Pattern", "url": "https://www.geeksforgeeks.org/binary-search-on-answer-pattern/", "difficulty": "Article", "why_similar": "GfG's tutorial on this exact pattern with worked examples." }
+      ]
+    },
+    "linked-list-reversal": {
+      "name": "Linked List Reversal",
+      "recognition": "Reverse, partially reverse, or rearrange a linked list in place.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "92", "title": "Reverse Linked List II", "url": "https://leetcode.com/problems/reverse-linked-list-ii/", "difficulty": "Medium", "why_similar": "Reverse a sublist between two indices — builds on the full-reversal template." },
+        { "judge": "leetcode", "id": "234", "title": "Palindrome Linked List", "url": "https://leetcode.com/problems/palindrome-linked-list/", "difficulty": "Easy", "why_similar": "Half-reverse + compare; combines reversal with slow/fast pointers." },
+        { "judge": "leetcode", "id": "24", "title": "Swap Nodes in Pairs", "url": "https://leetcode.com/problems/swap-nodes-in-pairs/", "difficulty": "Medium", "why_similar": "Group-of-2 reversal, precursor to k-group." },
+        { "judge": "leetcode", "id": "61", "title": "Rotate List", "url": "https://leetcode.com/problems/rotate-list/", "difficulty": "Medium", "why_similar": "Tail-to-head rotation; uses slow/fast pointer gap." },
+        { "judge": "leetcode", "id": "1721", "title": "Swapping Nodes in a Linked List", "url": "https://leetcode.com/problems/swapping-nodes-in-a-linked-list/", "difficulty": "Medium", "why_similar": "Find kth from start and end, swap their values — pointer-only." },
+        { "judge": "geeksforgeeks", "id": "reverse-a-linked-list", "title": "Reverse a Linked List", "url": "https://www.geeksforgeeks.org/reverse-a-linked-list/", "difficulty": "Article", "why_similar": "Iterative and recursive reversal side-by-side." }
+      ]
+    },
+    "linked-list-merge": {
+      "name": "Linked List Merge",
+      "recognition": "Merge two or more sorted lists, or interleave based on values.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1669", "title": "Merge In Between Linked Lists", "url": "https://leetcode.com/problems/merge-in-between-linked-lists/", "difficulty": "Medium", "why_similar": "Splice one list inside another — pointer rewiring practice." },
+        { "judge": "leetcode", "id": "147", "title": "Insertion Sort List", "url": "https://leetcode.com/problems/insertion-sort-list/", "difficulty": "Medium", "why_similar": "Sort a linked list by repeated insertion — builds merge intuition." },
+        { "judge": "leetcode", "id": "148", "title": "Sort List", "url": "https://leetcode.com/problems/sort-list/", "difficulty": "Medium", "why_similar": "Merge sort on a linked list using the merge routine." },
+        { "judge": "geeksforgeeks", "id": "merge-two-sorted-linked-lists", "title": "Merge Two Sorted Linked Lists", "url": "https://www.geeksforgeeks.org/merge-two-sorted-linked-lists/", "difficulty": "Article", "why_similar": "Iterative and recursive merge variants." }
+      ]
+    },
+    "linked-list-fast-slow": {
+      "name": "Fast / Slow Pointers",
+      "recognition": "Cycle detection, finding middle, palindrome, or Kth-from-end.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "142", "title": "Linked List Cycle II", "url": "https://leetcode.com/problems/linked-list-cycle-ii/", "difficulty": "Medium", "why_similar": "Find the cycle entry — extends NeetCode 150's cycle detection." },
+        { "judge": "leetcode", "id": "328", "title": "Odd Even Linked List", "url": "https://leetcode.com/problems/odd-even-linked-list/", "difficulty": "Medium", "why_similar": "Partition by index parity — two-pointer rewiring." },
+        { "judge": "leetcode", "id": "2095", "title": "Delete the Middle Node of a Linked List", "url": "https://leetcode.com/problems/delete-the-middle-node-of-a-linked-list/", "difficulty": "Medium", "why_similar": "Find middle with slow/fast, then delete." },
+        { "judge": "geeksforgeeks", "id": "floyds-cycle-detection", "title": "Floyd's Cycle Detection", "url": "https://www.geeksforgeeks.org/floyds-cycle-detection-algorithm/", "difficulty": "Article", "why_similar": "Mathematical proof of why slow/fast meets inside a cycle." }
+      ]
+    },
+    "linked-list-hash": {
+      "name": "Linked List + Hashmap",
+      "recognition": "Random pointers, deep copies, or any 'node with back-reference' problem.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "432", "title": "All O`one Data Structure", "url": "https://leetcode.com/problems/all-oone-data-structure/", "difficulty": "Hard", "why_similar": "Hashmap + doubly-linked list — same machinery as LRU Cache." },
+        { "judge": "leetcode", "id": "460", "title": "LFU Cache", "url": "https://leetcode.com/problems/lfu-cache/", "difficulty": "Hard", "why_similar": "Two-level structure (frequency buckets + LRU within each)." }
+      ]
+    },
+    "tree-dfs": {
+      "name": "Tree DFS (Recursion)",
+      "recognition": "Hierarchical data, path problems, property validation, recursive structure.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "112", "title": "Path Sum", "url": "https://leetcode.com/problems/path-sum/", "difficulty": "Easy", "why_similar": "Root-to-leaf path with running sum — simplest DFS example." },
+        { "judge": "leetcode", "id": "113", "title": "Path Sum II", "url": "https://leetcode.com/problems/path-sum-ii/", "difficulty": "Medium", "why_similar": "All root-to-leaf paths matching a sum — backtracking on a tree." },
+        { "judge": "leetcode", "id": "129", "title": "Sum Root to Leaf Numbers", "url": "https://leetcode.com/problems/sum-root-to-leaf-numbers/", "difficulty": "Medium", "why_similar": "Concatenate digits along paths — DFS with state." },
+        { "judge": "leetcode", "id": "337", "title": "House Robber III", "url": "https://leetcode.com/problems/house-robber-iii/", "difficulty": "Medium", "why_similar": "Tree DP — return two values from each node (rob/skip)." },
+        { "judge": "leetcode", "id": "863", "title": "All Nodes Distance K in Binary Tree", "url": "https://leetcode.com/problems/all-nodes-distance-k-in-binary-tree/", "difficulty": "Medium", "why_similar": "Augment with parent pointers, then BFS/DFS from target." },
+        { "judge": "geeksforgeeks", "id": "tree-traversals-inorder-preorder-and-postorder", "title": "Tree Traversals", "url": "https://www.geeksforgeeks.org/tree-traversals-inorder-preorder-and-postorder/", "difficulty": "Article", "why_similar": "Reference on the three DFS orders with diagrams." }
+      ]
+    },
+    "tree-bfs": {
+      "name": "Tree BFS (Level Order)",
+      "recognition": "Process by depth, layer-by-layer aggregation, or shortest path on a tree.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "103", "title": "Binary Tree Zigzag Level Order Traversal", "url": "https://leetcode.com/problems/binary-tree-zigzag-level-order-traversal/", "difficulty": "Medium", "why_similar": "Level-order with alternating direction per level." },
+        { "judge": "leetcode", "id": "107", "title": "Binary Tree Level Order Traversal II", "url": "https://leetcode.com/problems/binary-tree-level-order-traversal-ii/", "difficulty": "Easy", "why_similar": "Same as NeetCode 150's but bottom-up." },
+        { "judge": "leetcode", "id": "111", "title": "Minimum Depth of Binary Tree", "url": "https://leetcode.com/problems/minimum-depth-of-binary-tree/", "difficulty": "Easy", "why_similar": "BFS finds the nearest leaf — efficient vs DFS." },
+        { "judge": "leetcode", "id": "637", "title": "Average of Levels in Binary Tree", "url": "https://leetcode.com/problems/average-of-levels-in-binary-tree/", "difficulty": "Easy", "why_similar": "Per-level aggregation — warm-up." },
+        { "judge": "leetcode", "id": "429", "title": "N-ary Tree Level Order Traversal", "url": "https://leetcode.com/problems/n-ary-tree-level-order-traversal/", "difficulty": "Medium", "why_similar": "Level order on an N-ary tree (any number of children)." },
+        { "judge": "geeksforgeeks", "id": "level-order-tree-traversal", "title": "Level Order Tree Traversal", "url": "https://www.geeksforgeeks.org/level-order-tree-traversal/", "difficulty": "Article", "why_similar": "Iterative BFS implementation with queue." }
+      ]
+    },
+    "bst-property": {
+      "name": "BST Property",
+      "recognition": "Operations that exploit the BST ordering (left < node < right).",
+      "related_problems": [
+        { "judge": "leetcode", "id": "701", "title": "Insert into a Binary Search Tree", "url": "https://leetcode.com/problems/insert-into-a-binary-search-tree/", "difficulty": "Medium", "why_similar": "Basic BST insertion; iterative and recursive." },
+        { "judge": "leetcode", "id": "450", "title": "Delete Node in a BST", "url": "https://leetcode.com/problems/delete-node-in-a-bst/", "difficulty": "Medium", "why_similar": "Three-case deletion (leaf/one child/two children with inorder successor)." },
+        { "judge": "leetcode", "id": "700", "title": "Search in a Binary Search Tree", "url": "https://leetcode.com/problems/search-in-a-binary-search-tree/", "difficulty": "Easy", "why_similar": "Smallest BST query — uses the property to skip half the tree." },
+        { "judge": "leetcode", "id": "1008", "title": "Construct Binary Search Tree from Preorder Traversal", "url": "https://leetcode.com/problems/construct-binary-search-tree-from-preorder-traversal/", "difficulty": "Medium", "why_similar": "Build a BST from a known order; lower/upper bound recursion." },
+        { "judge": "geeksforgeeks", "id": "binary-search-tree-data-structure", "title": "Binary Search Tree", "url": "https://www.geeksforgeeks.org/binary-search-tree-data-structure/", "difficulty": "Article", "why_similar": "Operations, complexity, and properties." }
+      ]
+    },
+    "heap-topk": {
+      "name": "Heap / Top-K",
+      "recognition": "K largest, K smallest, K closest — selection of K elements from a stream.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "658", "title": "Find K Closest Elements", "url": "https://leetcode.com/problems/find-k-closest-elements/", "difficulty": "Medium", "why_similar": "K-closest in a sorted array; binary search + two pointers." },
+        { "judge": "leetcode", "id": "767", "title": "Reorganize String", "url": "https://leetcode.com/problems/reorganize-string/", "difficulty": "Medium", "why_similar": "Frequency + max-heap with cooldowns — same machinery as Task Scheduler." },
+        { "judge": "leetcode", "id": "1054", "title": "Distant Barcodes", "url": "https://leetcode.com/problems/distant-barcodes/", "difficulty": "Medium", "why_similar": "Same re-spacing pattern with frequencies." },
+        { "judge": "geeksforgeeks", "id": "kth-largest-element", "title": "Kth Largest Element", "url": "https://www.geeksforgeeks.org/kth-largest-element-in-an-array/", "difficulty": "Article", "why_similar": "Heap vs quickselect comparison." }
+      ]
+    },
+    "heap-median": {
+      "name": "Two Heaps (Median)",
+      "recognition": "Maintain median (or any percentile) of a stream in O(log n) per insert.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "480", "title": "Sliding Window Median", "url": "https://leetcode.com/problems/sliding-window-median/", "difficulty": "Hard", "why_similar": "Sliding window + two heaps with lazy deletion." },
+        { "judge": "leetcode", "id": "1825", "title": "Finding MK Average", "url": "https://leetcode.com/problems/finding-mk-average/", "difficulty": "Hard", "why_similar": "Stream + trim K smallest/largest, maintain middle average." },
+        { "judge": "geeksforgeeks", "id": "median-of-stream-of-running-integers", "title": "Median of Stream of Running Integers", "url": "https://www.geeksforgeeks.org/median-of-stream-of-running-integers-using-stl/", "difficulty": "Article", "why_similar": "Two-heaps tutorial with C++ STL." }
+      ]
+    },
+    "heap-scheduling": {
+      "name": "Heap Scheduling",
+      "recognition": "Greedy scheduling with resource/cooldown constraints, or 'earliest deadline' selection.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "871", "title": "Minimum Number of Refueling Stops", "url": "https://leetcode.com/problems/minimum-number-of-refueling-stops/", "difficulty": "Hard", "why_similar": "Max-heap of fuel available at past stations; greedy on reach." },
+        { "judge": "leetcode", "id": "1642", "title": "Furthest Building You Can Reach", "url": "https://leetcode.com/problems/furthest-building-you-can-reach/", "difficulty": "Medium", "why_similar": "Min-heap of climb heights; use ladders on the largest." },
+        { "judge": "geeksforgeeks", "id": "task-scheduler-with-cooldown", "title": "Task Scheduler with Cooling Time", "url": "https://www.geeksforgeeks.org/task-scheduler-with-cooldown-time/", "difficulty": "Article", "why_similar": "Math-based and heap-based solutions side-by-side." }
+      ]
+    },
+    "heap-merging": {
+      "name": "Heap Merging / K-way",
+      "recognition": "Smallest/largest from K sorted streams, or 'next best' iteration across many sources.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "373", "title": "Find K Pairs with Smallest Sums", "url": "https://leetcode.com/problems/find-k-pairs-with-smallest-sums/", "difficulty": "Medium", "why_similar": "K-way merge over implicit pairs from two sorted lists." },
+        { "judge": "leetcode", "id": "632", "title": "Smallest Range Covering Elements from K Lists", "url": "https://leetcode.com/problems/smallest-range-covering-elements-from-k-lists/", "difficulty": "Hard", "why_similar": "Min-heap across K lists + sliding max; K-way merge." },
+        { "judge": "leetcode", "id": "786", "title": "K-th Smallest Prime Fraction", "url": "https://leetcode.com/problems/k-th-smallest-prime-fraction/", "difficulty": "Hard", "why_similar": "Heap over fractions; advances via row/column pointers." },
+        { "judge": "geeksforgeeks", "id": "merge-k-sorted-arrays", "title": "Merge K Sorted Arrays", "url": "https://www.geeksforgeeks.org/merge-k-sorted-arrays/", "difficulty": "Article", "why_similar": "Heap-based K-way merge reference." }
+      ]
+    },
+    "backtracking-subsets": {
+      "name": "Backtracking: Subsets / Combinations",
+      "recognition": "All subsets, all combinations, or partition with constraints.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "47", "title": "Permutations II", "url": "https://leetcode.com/problems/permutations-ii/", "difficulty": "Medium", "why_similar": "Same template as Permutations but with duplicates and used[]." },
+        { "judge": "leetcode", "id": "216", "title": "Combination Sum III", "url": "https://leetcode.com/problems/combination-sum-iii/", "difficulty": "Medium", "why_similar": "Combinations of fixed size with sum constraint." },
+        { "judge": "leetcode", "id": "377", "title": "Combination Sum IV", "url": "https://leetcode.com/problems/combination-sum-iv/", "difficulty": "Medium", "why_similar": "Counts combinations (order matters) — DP variant of backtracking." },
+        { "judge": "geeksforgeeks", "id": "backtracking-set-1", "title": "Backtracking Set 1 (Subsets)", "url": "https://www.geeksforgeeks.org/backtracking-set-2-maze/", "difficulty": "Article", "why_similar": "GfG's backtracking tutorial with worked examples." }
+      ]
+    },
+    "backtracking-permutations": {
+      "name": "Backtracking: Permutations",
+      "recognition": "All orderings, k-th ordering, or arrangements with constraints.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "47", "title": "Permutations II", "url": "https://leetcode.com/problems/permutations-ii/", "difficulty": "Medium", "why_similar": "Permutations with duplicates — sorting + skip trick." },
+        { "judge": "leetcode", "id": "60", "title": "Permutation Sequence", "url": "https://leetcode.com/problems/permutation-sequence/", "difficulty": "Hard", "why_similar": "K-th permutation directly without enumerating; factorial number system." },
+        { "judge": "leetcode", "id": "267", "title": "Palindrome Permutation II", "url": "https://leetcode.com/problems/palindrome-permutation-ii/", "difficulty": "Medium", "why_similar": "Generate all palindromic permutations — permute half + center." },
+        { "judge": "geeksforgeeks", "id": "permutations-of-a-given-string", "title": "Permutations of a Given String", "url": "https://www.geeksforgeeks.org/write-a-c-program-to-print-all-permutations-of-a-given-string/", "difficulty": "Article", "why_similar": "Iterative and recursive permutation reference." }
+      ]
+    },
+    "backtracking-grid": {
+      "name": "Backtracking on a Grid",
+      "recognition": "Search a grid with obstacles, visiting cells, or state restoration.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "980", "title": "Unique Paths III", "url": "https://leetcode.com/problems/unique-paths-iii/", "difficulty": "Hard", "why_similar": "Grid DFS that must visit every empty cell exactly once." },
+        { "judge": "leetcode", "id": "1219", "title": "Path with Maximum Gold", "url": "https://leetcode.com/problems/path-with-maximum-gold/", "difficulty": "Medium", "why_similar": "Grid DFS maximizing collected gold; backtrack on visit." },
+        { "judge": "geeksforgeeks", "id": "word-search-grid", "title": "Word Search in a Grid", "url": "https://www.geeksforgeeks.org/search-a-word-in-a-2d-grid-of-characters/", "difficulty": "Article", "why_similar": "Canonical grid backtracking article." }
+      ]
+    },
+    "backtracking-construct": {
+      "name": "Backtracking: Constructive",
+      "recognition": "Build all valid configurations subject to a constraint (parens, queens, sudoku).",
+      "related_problems": [
+        { "judge": "leetcode", "id": "37", "title": "Sudoku Solver", "url": "https://leetcode.com/problems/sudoku-solver/", "difficulty": "Hard", "why_similar": "Constraint-satisfaction backtracking with bitmask candidates." },
+        { "judge": "leetcode", "id": "489", "title": "Robot Room Cleaner", "url": "https://leetcode.com/problems/robot-room-cleaner/", "difficulty": "Hard", "why_similar": "DFS in an unknown 2D space; visit-marker as state." },
+        { "judge": "geeksforgeeks", "id": "n-queen-problem", "title": "N-Queen Problem", "url": "https://www.geeksforgeeks.org/n-queen-problem-backtracking-3/", "difficulty": "Article", "why_similar": "Detailed N-Queens tutorial with diagonal/anti-diagonal checks." }
+      ]
+    },
+    "trie": {
+      "name": "Trie",
+      "recognition": "Prefix search, autocomplete, word dictionary with wildcards, or XOR-maximization.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "421", "title": "Maximum XOR of Two Numbers in an Array", "url": "https://leetcode.com/problems/maximum-xor-of-two-numbers-in-an-array/", "difficulty": "Medium", "why_similar": "Binary trie over integers; greedy bit-by-bit." },
+        { "judge": "leetcode", "id": "1707", "title": "Maximum XOR With an Element From Array", "url": "https://leetcode.com/problems/maximum-xor-with-an-element-from-array/", "difficulty": "Hard", "why_similar": "Binary trie with offline queries and value constraint." },
+        { "judge": "leetcode", "id": "1268", "title": "Search Suggestions System", "url": "https://leetcode.com/problems/search-suggestions-system/", "difficulty": "Medium", "why_similar": "Autocomplete — sort strings, prefix search per character." },
+        { "judge": "geeksforgeeks", "id": "trie-insert-and-search", "title": "Trie Insert and Search", "url": "https://www.geeksforgeeks.org/trie-insert-and-search/", "difficulty": "Article", "why_similar": "Reference trie implementation with complexity analysis." }
+      ]
+    },
+    "graph-bfs": {
+      "name": "Graph BFS (Shortest Path)",
+      "recognition": "Shortest path on unweighted graph, or BFS over an implicit state graph.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1091", "title": "Shortest Path in Binary Matrix", "url": "https://leetcode.com/problems/shortest-path-in-binary-matrix/", "difficulty": "Medium", "why_similar": "8-directional grid BFS for shortest path." },
+        { "judge": "leetcode", "id": "752", "title": "Open the Lock", "url": "https://leetcode.com/problems/open-the-lock/", "difficulty": "Medium", "why_similar": "BFS on state space (4-digit combinations); dead-ends as visited set." },
+        { "judge": "leetcode", "id": "815", "title": "Bus Routes", "url": "https://leetcode.com/problems/bus-routes/", "difficulty": "Hard", "why_similar": "BFS over stops but edges are routes — multi-source state." },
+        { "judge": "geeksforgeeks", "id": "bfs-for-a-graph", "title": "BFS for a Graph", "url": "https://www.geeksforgeeks.org/bfs-for-a-graph/", "difficulty": "Article", "why_similar": "Reference article on BFS and its uses." }
+      ]
+    },
+    "graph-bfs-grid": {
+      "name": "Grid BFS (Multi-source)",
+      "recognition": "Spreading from edges, or shortest distance in a 2D grid with obstacles.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "542", "title": "01 Matrix", "url": "https://leetcode.com/problems/01-matrix/", "difficulty": "Medium", "why_similar": "Multi-source BFS from all 0-cells; classic shortest-distance-on-grid." },
+        { "judge": "leetcode", "id": "1162", "title": "As Far from Land as Possible", "url": "https://leetcode.com/problems/as-far-from-land-as-possible/", "difficulty": "Medium", "why_similar": "Multi-source BFS from all land cells." },
+        { "judge": "leetcode", "id": "1091", "title": "Shortest Path in Binary Matrix", "url": "https://leetcode.com/problems/shortest-path-in-binary-matrix/", "difficulty": "Medium", "why_similar": "Single-source BFS with 8 directions." },
+        { "judge": "geeksforgeeks", "id": "shortest-distance-in-a-binary-maze", "title": "Shortest Distance in a Binary Maze", "url": "https://www.geeksforgeeks.org/shortest-path-in-a-binary-maze/", "difficulty": "Article", "why_similar": "BFS solution to maze shortest path." }
+      ]
+    },
+    "graph-dfs": {
+      "name": "Graph DFS",
+      "recognition": "Connectivity, cycle detection, reachability, or path existence on a graph.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1059", "title": "All Paths from Source Lead to Destination", "url": "https://leetcode.com/problems/all-paths-from-source-lead-to-destination/", "difficulty": "Medium", "why_similar": "DFS with three-color marking to detect cycles on a directed graph." },
+        { "judge": "leetcode", "id": "802", "title": "Find Eventual Safe States", "url": "https://leetcode.com/problems/find-eventual-safe-states/", "difficulty": "Medium", "why_similar": "Reverse topological order via DFS; identifies terminal nodes." },
+        { "judge": "geeksforgeeks", "id": "dfs-for-a-graph", "title": "DFS for a Graph", "url": "https://www.geeksforgeeks.org/dfs-for-a-graph/", "difficulty": "Article", "why_similar": "Reference article on recursive and iterative DFS." }
+      ]
+    },
+    "union-find": {
+      "name": "Union-Find (DSU)",
+      "recognition": "Connectivity queries, cycle detection on undirected graphs, or grouping by equivalence.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "547", "title": "Number of Provinces", "url": "https://leetcode.com/problems/number-of-provinces/", "difficulty": "Medium", "why_similar": "Count connected components in an adjacency matrix — DSU or BFS." },
+        { "judge": "leetcode", "id": "721", "title": "Accounts Merge", "url": "https://leetcode.com/problems/accounts-merge/", "difficulty": "Medium", "why_similar": "Union by email key, then group accounts; DSU with string keys." },
+        { "judge": "leetcode", "id": "737", "title": "Sentence Similarity II", "url": "https://leetcode.com/problems/sentence-similarity-ii/", "difficulty": "Medium", "why_similar": "Union over synonymous pairs; classic DSU on pairs." },
+        { "judge": "geeksforgeeks", "id": "union-find", "title": "Union-Find (Disjoint Set Union)", "url": "https://www.geeksforgeeks.org/union-find/", "difficulty": "Article", "why_similar": "Path compression + union-by-rank reference." }
+      ]
+    },
+    "topological-sort": {
+      "name": "Topological Sort",
+      "recognition": "Dependencies, prerequisites, ordering constraints, or compile order.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "310", "title": "Minimum Height Trees", "url": "https://leetcode.com/problems/minimum-height-trees/", "difficulty": "Medium", "why_similar": "Reverse topological removal of leaves; centroids of a tree." },
+        { "judge": "leetcode", "id": "444", "title": "Sequence Reconstruction", "url": "https://leetcode.com/problems/sequence-reconstruction/", "difficulty": "Medium", "why_similar": "Verify uniqueness of a topological order given subsequences." },
+        { "judge": "leetcode", "id": "1136", "title": "Parallel Courses", "url": "https://leetcode.com/problems/parallel-courses/", "difficulty": "Medium", "why_similar": "Minimum semesters — topological levels." },
+        { "judge": "geeksforgeeks", "id": "topological-sorting", "title": "Topological Sorting", "url": "https://www.geeksforgeeks.org/topological-sorting/", "difficulty": "Article", "why_similar": "Kahn's BFS and DFS variants." }
+      ]
+    },
+    "dijkstra": {
+      "name": "Dijkstra's Algorithm",
+      "recognition": "Shortest path on a weighted graph with non-negative edges.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1514", "title": "Path with Maximum Probability", "url": "https://leetcode.com/problems/path-with-maximum-probability/", "difficulty": "Medium", "why_similar": "Max-product path — same machinery, inverse comparator." },
+        { "judge": "leetcode", "id": "1631", "title": "Path With Minimum Effort", "url": "https://leetcode.com/problems/path-with-minimum-effort/", "difficulty": "Medium", "why_similar": "Minimize max edge weight (not sum) — Dijkstra with max-heap distance." },
+        { "judge": "leetcode", "id": "505", "title": "The Maze II", "url": "https://leetcode.com/problems/the-maze-ii/", "difficulty": "Medium", "why_similar": "Dijkstra on a maze where edges are 'roll until wall' moves." },
+        { "judge": "geeksforgeeks", "id": "dijkstras-shortest-path-algorithm", "title": "Dijkstra's Shortest Path Algorithm", "url": "https://www.geeksforgeeks.org/dijkstras-shortest-path-algorithm-greedy-algo-7/", "difficulty": "Article", "why_similar": "Reference with priority queue and complexity analysis." }
+      ]
+    },
+    "mst": {
+      "name": "Minimum Spanning Tree",
+      "recognition": "Connect all points/nodes with minimum total weight; Prim's or Kruskal's.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1135", "title": "Connecting Cities With Minimum Cost", "url": "https://leetcode.com/problems/connecting-cities-with-minimum-cost/", "difficulty": "Medium", "why_similar": "Prim's MST over a list of connections." },
+        { "judge": "leetcode", "id": "1168", "title": "Optimize Water Distribution in a Village", "url": "https://leetcode.com/problems/optimize-water-distribution-in-a-village/", "difficulty": "Hard", "why_similar": "MST with virtual source for 'build a well' cost; Kruskal's." },
+        { "judge": "geeksforgeeks", "id": "minimum-spanning-tree", "title": "Minimum Spanning Tree", "url": "https://www.geeksforgeeks.org/minimum-spanning-tree-introduction-and-applications/", "difficulty": "Article", "why_similar": "Prim's vs Kruskal's side-by-side." }
+      ]
+    },
+    "graph-eulerian": {
+      "name": "Eulerian Path",
+      "recognition": "Use every edge exactly once; reconstruction of an itinerary through all tickets.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "753", "title": "Cracking the Safe", "url": "https://leetcode.com/problems/cracking-the-safe/", "difficulty": "Hard", "why_similar": "De Bruijn sequence as Eulerian path on a graph of n-grams." },
+        { "judge": "geeksforgeeks", "id": "hierholzers-algorithm-eulerian-path", "title": "Hierholzer's Algorithm for Eulerian Path", "url": "https://www.geeksforgeeks.org/hierholzers-algorithm-eulerian-path-circuits/", "difficulty": "Article", "why_similar": "Reference for the exact algorithm used in Reconstruct Itinerary." }
+      ]
+    },
+    "dp-1d": {
+      "name": "1-D Dynamic Programming",
+      "recognition": "State indexed by a single dimension (position, count, time); transitions depend on a few previous states.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "377", "title": "Combination Sum IV", "url": "https://leetcode.com/problems/combination-sum-iv/", "difficulty": "Medium", "why_similar": "Permutation-order count; builds on Coin Change template." },
+        { "judge": "leetcode", "id": "650", "title": "2 Keys Keyboard", "url": "https://leetcode.com/problems/2-keys-keyboard/", "difficulty": "Medium", "why_similar": "Divisor DP — state on current n, try all factor splits." },
+        { "judge": "leetcode", "id": "279", "title": "Perfect Squares", "url": "https://leetcode.com/problems/perfect-squares/", "difficulty": "Medium", "why_similar": "Minimize count of squares summing to n; classic DP-on-answer." },
+        { "judge": "leetcode", "id": "343", "title": "Integer Break", "url": "https://leetcode.com/problems/integer-break/", "difficulty": "Medium", "why_similar": "Maximize product of parts; DP + greedy equivalence." },
+        { "judge": "leetcode", "id": "740", "title": "Delete and Earn", "url": "https://leetcode.com/problems/delete-and-earn/", "difficulty": "Medium", "why_similar": "Exactly the House Robber template on a points array." },
+        { "judge": "geeksforgeeks", "id": "dynamic-programming-introduction", "title": "Dynamic Programming Introduction", "url": "https://www.geeksforgeeks.org/dynamic-programming/", "difficulty": "Article", "why_similar": "Foundational DP article with classic examples." }
+      ]
+    },
+    "dp-2d-grid": {
+      "name": "2-D DP on a Grid",
+      "recognition": "Path counting/optimization on a 2D grid; state at (i, j).",
+      "related_problems": [
+        { "judge": "leetcode", "id": "64", "title": "Minimum Path Sum", "url": "https://leetcode.com/problems/minimum-path-sum/", "difficulty": "Medium", "why_similar": "Same template as Unique Paths but with cell weights." },
+        { "judge": "leetcode", "id": "174", "title": "Dungeon Game", "url": "https://leetcode.com/problems/dungeon-game/", "difficulty": "Hard", "why_similar": "Reverse-DP on a grid; iterate from destination backwards." },
+        { "judge": "leetcode", "id": "741", "title": "Cherry Pickup", "url": "https://leetcode.com/problems/cherry-pickup/", "difficulty": "Hard", "why_similar": "Two-agents-on-grid DP; 3D state (r1, c1, r2)." },
+        { "judge": "leetcode", "id": "120", "title": "Triangle", "url": "https://leetcode.com/problems/triangle/", "difficulty": "Medium", "why_similar": "Grid DP with variable row length; bottom-up cleaner." },
+        { "judge": "geeksforgeeks", "id": "grid-based-dp", "title": "Grid-Based DP Problems", "url": "https://www.geeksforgeeks.org/maximum-path-sum-matrix/", "difficulty": "Article", "why_similar": "Article on grid DP with multiple worked examples." }
+      ]
+    },
+    "dp-2d-string": {
+      "name": "2-D DP on Strings",
+      "recognition": "Two sequences (edit distance, subsequence), or string-with-pattern DP.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "583", "title": "Delete Operation for Two Strings", "url": "https://leetcode.com/problems/delete-operation-for-two-strings/", "difficulty": "Medium", "why_similar": "Variant of LCS — minimum deletions to make equal." },
+        { "judge": "leetcode", "id": "392", "title": "Is Subsequence", "url": "https://leetcode.com/problems/is-subsequence/", "difficulty": "Easy", "why_similar": "One-direction LCS — greedy two-pointer or precomputed DP." },
+        { "judge": "leetcode", "id": "718", "title": "Maximum Length of Repeated Subarray", "url": "https://leetcode.com/problems/maximum-length-of-repeated-subarray/", "difficulty": "Medium", "why_similar": "Continuous-match version of LCS (subarray vs subsequence)." },
+        { "judge": "geeksforgeeks", "id": "longest-common-subsequence", "title": "Longest Common Subsequence", "url": "https://www.geeksforgeeks.org/longest-common-subsequence/", "difficulty": "Article", "why_similar": "Reference article on LCS with code and complexity." }
+      ]
+    },
+    "dp-interval": {
+      "name": "Interval DP",
+      "recognition": "State spans an interval [l, r]; solve by expanding the split point.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "664", "title": "Strange Printer", "url": "https://leetcode.com/problems/strange-printer/", "difficulty": "Hard", "why_similar": "Interval minimization with de-duplication of consecutive prints." },
+        { "judge": "leetcode", "id": "1000", "title": "Minimum Cost to Merge Stones", "url": "https://leetcode.com/problems/minimum-cost-to-merge-stones/", "difficulty": "Hard", "why_similar": "Interval DP with cumulative cost and a fixed chunk size." },
+        { "judge": "leetcode", "id": "1039", "title": "Minimum Score Triangulation of Polygon", "url": "https://leetcode.com/problems/minimum-score-triangulation-of-polygon/", "difficulty": "Medium", "why_similar": "Simpler interval DP — pick a k that splits (l, r) into a triangle." },
+        { "judge": "leetcode", "id": "1130", "title": "Minimum Cost Tree From Leaf Values", "url": "https://leetcode.com/problems/minimum-cost-tree-from-leaf-values/", "difficulty": "Medium", "why_similar": "Monotonic stack + DP variant; pair adjacent values greedily." },
+        { "judge": "geeksforgeeks", "id": "matrix-chain-multiplication", "title": "Matrix Chain Multiplication", "url": "https://www.geeksforgeeks.org/matrix-chain-multiplication-dp-8/", "difficulty": "Article", "why_similar": "Canonical interval-DP tutorial." }
+      ]
+    },
+    "dp-kadane": {
+      "name": "Kadane's Algorithm",
+      "recognition": "Maximum/minimum subarray sum (linear, not subsequence).",
+      "related_problems": [
+        { "judge": "leetcode", "id": "918", "title": "Maximum Sum Circular Subarray", "url": "https://leetcode.com/problems/maximum-sum-circular-subarray/", "difficulty": "Medium", "why_similar": "Kadane's extended to circular arrays." },
+        { "judge": "leetcode", "id": "1749", "title": "Count of Subarrays With Absolute Diff Less Than or Equal to K", "url": "https://leetcode.com/problems/count-of-subarrays-with-absolute-diff-less-than-or-equal-to-k/", "difficulty": "Medium", "why_similar": "Window-style subarray counting; related to Kadane's family." },
+        { "judge": "geeksforgeeks", "id": "largest-sum-contiguous-subarray", "title": "Largest Sum Contiguous Subarray", "url": "https://www.geeksforgeeks.org/largest-sum-contiguous-subarray/", "difficulty": "Article", "why_similar": "Kadane's algorithm reference article." }
+      ]
+    },
+    "dp-knapsack": {
+      "name": "0/1 Knapsack",
+      "recognition": "Subset sum, partition, bounded item selection, or count of ways to reach a sum.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "474", "title": "Ones and Zeroes", "url": "https://leetcode.com/problems/ones-and-zeroes/", "difficulty": "Medium", "why_similar": "Two-dimensional 0/1 knapsack on (zeros, ones)." },
+        { "judge": "leetcode", "id": "879", "title": "Profitable Schemes", "url": "https://leetcode.com/problems/profitable-schemes/", "difficulty": "Hard", "why_similar": "Group-knapsack variant with profit threshold." },
+        { "judge": "geeksforgeeks", "id": "0-1-knapsack-problem", "title": "0/1 Knapsack Problem", "url": "https://www.geeksforgeeks.org/0-1-knapsack-problem-dp-10/", "difficulty": "Article", "why_similar": "Reference article on 0/1 knapsack with code." }
+      ]
+    },
+    "greedy": {
+      "name": "Greedy",
+      "recognition": "Locally optimal choice provably leads to global optimum; sorted input + scan.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "402", "title": "Remove K Digits", "url": "https://leetcode.com/problems/remove-k-digits/", "difficulty": "Medium", "why_similar": "Monotonic-stack greedy to make smallest number." },
+        { "judge": "leetcode", "id": "881", "title": "Boats to Save People", "url": "https://leetcode.com/problems/boats-to-save-people/", "difficulty": "Medium", "why_similar": "Pair heaviest with lightest; classic greedy two-pointers." },
+        { "judge": "leetcode", "id": "135", "title": "Candy", "url": "https://leetcode.com/problems/candy/", "difficulty": "Hard", "why_similar": "Two-pass greedy with rating-based constraints." },
+        { "judge": "geeksforgeeks", "id": "greedy-algorithms", "title": "Greedy Algorithms", "url": "https://www.geeksforgeeks.org/greedy-algorithms/", "difficulty": "Article", "why_similar": "Greedy vs DP decision article with examples." }
+      ]
+    },
+    "intervals": {
+      "name": "Intervals",
+      "recognition": "Sort by start/end, sweep, or merge overlapping ranges.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "452", "title": "Minimum Number of Arrows to Burst Balloons", "url": "https://leetcode.com/problems/minimum-number-of-arrows-to-burst-balloons/", "difficulty": "Medium", "why_similar": "Same family as Non-overlapping Intervals — sort by end, count." },
+        { "judge": "leetcode", "id": "1024", "title": "Video Stitching", "url": "https://leetcode.com/problems/video-stitching/", "difficulty": "Medium", "why_similar": "Greedy interval coverage — minimum clips to cover a range." },
+        { "judge": "geeksforgeeks", "id": "activity-selection-problem", "title": "Activity Selection Problem", "url": "https://www.geeksforgeeks.org/activity-selection-problem-greedy-algo-1/", "difficulty": "Article", "why_similar": "Canonical interval scheduling greedy article." }
+      ]
+    },
+    "math-matrix": {
+      "name": "Matrix Traversal",
+      "recognition": "Layer-by-layer matrix operations, in-place matrix transforms, or coordinate geometry.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "498", "title": "Diagonal Traverse", "url": "https://leetcode.com/problems/diagonal-traverse/", "difficulty": "Medium", "why_similar": "Diagonal scan with direction flip — matrix traversal variant." },
+        { "judge": "leetcode", "id": "240", "title": "Search a 2D Matrix II", "url": "https://leetcode.com/problems/search-a-2d-matrix-ii/", "difficulty": "Medium", "why_similar": "Staircase search on a row- and column-sorted matrix." },
+        { "judge": "geeksforgeeks", "id": "spiral-matrix-traversal", "title": "Spiral Matrix Traversal", "url": "https://www.geeksforgeeks.org/print-a-given-matrix-in-spiral-form/", "difficulty": "Article", "why_similar": "Spiral traversal reference with diagram." }
+      ]
+    },
+    "math-number": {
+      "name": "Number Math",
+      "recognition": "Digit manipulation, modular arithmetic, base conversion, or numeric overflow handling.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "171", "title": "Excel Sheet Column Number", "url": "https://leetcode.com/problems/excel-sheet-column-number/", "difficulty": "Easy", "why_similar": "Base-26 conversion — paired with Reverse Integer as warm-ups." },
+        { "judge": "leetcode", "id": "168", "title": "Excel Sheet Column Title", "url": "https://leetcode.com/problems/excel-sheet-column-title/", "difficulty": "Easy", "why_similar": "Reverse base-26 — zero-indexed trick." },
+        { "judge": "leetcode", "id": "412", "title": "Fizz Buzz", "url": "https://leetcode.com/problems/fizz-buzz/", "difficulty": "Easy", "why_similar": "Classic mod-based output; warm-up for digit problems." },
+        { "judge": "geeksforgeeks", "id": "number-theory-interview-questions", "title": "Number Theory Interview Questions", "url": "https://www.geeksforgeeks.org/number-theory-interview-questions/", "difficulty": "Article", "why_similar": "Curated list of common number-theory interview questions." }
+      ]
+    },
+    "bit-manipulation": {
+      "name": "Bit Manipulation",
+      "recognition": "XOR tricks, bitmask state, set/clear/toggle bit operations, or bit DP.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "231", "title": "Power of Two", "url": "https://leetcode.com/problems/power-of-two/", "difficulty": "Easy", "why_similar": "Single-bit check via n & (n-1) == 0." },
+        { "judge": "leetcode", "id": "342", "title": "Power of Four", "url": "https://leetcode.com/problems/power-of-four/", "difficulty": "Easy", "why_similar": "Bit pattern + modulo trick." },
+        { "judge": "leetcode", "id": "476", "title": "Number Complement", "url": "https://leetcode.com/problems/number-complement/", "difficulty": "Easy", "why_similar": "Mask construction via highest set bit." },
+        { "judge": "leetcode", "id": "898", "title": "Bitwise ORs of Subarrays", "url": "https://leetcode.com/problems/bitwise-ors-of-subarrays/", "difficulty": "Medium", "why_similar": "Running set of ORs ending at each position; bounded size." },
+        { "judge": "geeksforgeeks", "id": "bit-tricks-for-competitive-programming", "title": "Bit Tricks for Competitive Programming", "url": "https://www.geeksforgeeks.org/bit-tricks-competitive-programming/", "difficulty": "Article", "why_similar": "Catalog of common bit tricks with code." }
+      ]
+    },
+    "monotonic-queue": {
+      "name": "Monotonic Queue (Sliding Window Max/Min)",
+      "recognition": "Maximum/minimum of a sliding window in O(n).",
+      "related_problems": [
+        { "judge": "leetcode", "id": "1696", "title": "Jump Game VI", "url": "https://leetcode.com/problems/jump-game-vi/", "difficulty": "Medium", "why_similar": "Monotonic queue over a sliding DP window; same deque technique." },
+        { "judge": "leetcode", "id": "862", "title": "Shortest Subarray with Sum at Least K", "url": "https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/", "difficulty": "Hard", "why_similar": "Monotonic deque over prefix sums — Hard variant of the technique." },
+        { "judge": "geeksforgeeks", "id": "sliding-window-maximum", "title": "Sliding Window Maximum", "url": "https://www.geeksforgeeks.org/sliding-window-maximum-maximum-of-all-subarrays-of-size-k/", "difficulty": "Article", "why_similar": "Canonical monotonic deque article for Sliding Window Maximum." }
+      ]
+    },
+    "quickselect": {
+      "name": "Quickselect",
+      "recognition": "K-th element in expected O(n) without full sort.",
+      "related_problems": [
+        { "judge": "leetcode", "id": "215", "title": "Kth Largest Element in an Array", "url": "https://leetcode.com/problems/kth-largest-element-in-an-array/", "difficulty": "Medium", "why_similar": "Canonical quickselect on kth largest." },
+        { "judge": "leetcode", "id": "324", "title": "Wiggle Sort II", "url": "https://leetcode.com/problems/wiggle-sort-ii/", "difficulty": "Medium", "why_similar": "Quickselect for median, then 3-way partition." }
+      ]
+    }
+  }
+}
